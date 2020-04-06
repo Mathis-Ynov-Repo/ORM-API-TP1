@@ -16,7 +16,7 @@ class Category extends AbstractEntity
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups("categories:details")
+     * @Groups({"categories:details", "articles:details"})
      */
     private $id;
 

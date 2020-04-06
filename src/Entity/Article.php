@@ -34,7 +34,6 @@ class Article extends AbstractEntity
     /**
      * @ORM\Column(type="integer")
      * @Assert\Choice(callback={"App\Article\Status", "getStatus"})
-     *  @Groups("articles:details")
      */
     private $status;
 
@@ -45,16 +44,16 @@ class Article extends AbstractEntity
     private $trending;
 
     /**
+     * @ORM\Column(type="datetime", nullable=true)
+     *  @Groups("articles:details")
+     */
+    private $published;
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="articles")
      *  @Groups("articles:details")
      */
     private $category;
-
-    /**
-     * @ORM\Column(type="date", nullable=true)
-     *  @Groups("articles:details")
-     */
-    private $published;
 
     public function getId(): ?int
     {
