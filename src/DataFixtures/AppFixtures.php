@@ -44,10 +44,15 @@ class AppFixtures extends Fixture
         $article->setTitle($faker->sentence($nbWords = 2, $variableNbWords = true))
         ->setTrending($faker->boolean())
         ->setStatus($faker->numberBetween($min = 0, $max = 2))
-        ->setPublished($faker->dateTime())
+        
+
         ->setContent($faker->paragraph($nbSentences = 3, $variableNbSentences = true))
         ->setCategory($category)
         ->setCreated($faker->dateTime());
+
+        // if($article->getStatus() == 2 | 0) {
+        //     $article->setPublished($faker->dateTime());
+        // }
 
         $manager->persist($article);
 

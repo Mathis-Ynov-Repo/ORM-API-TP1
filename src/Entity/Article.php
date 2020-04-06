@@ -51,6 +51,7 @@ class Article extends AbstractEntity
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="articles")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id",onDelete="SET NULL")
      *  @Groups("articles:details")
      */
     private $category;
